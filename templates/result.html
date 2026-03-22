@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="header">Deepfake Detection System</div>
+
+<div class="container">
+    <h2>Prediction Result</h2>
+
+    {% if images %}
+    <div class="images">
+        {% for img in images %}
+            <img src="{{ url_for('static', filename='uploads/' + img) }}">
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <!-- REAL / FAKE RESULT -->
+    <h3 class="{% if result == 'REAL' %}real{% elif result == 'FAKE' %}fake{% endif %}">
+        {{ result }}
+    </h3>
+
+    <!-- CONFIDENCE BAR -->
+    <div class="confidence-section">
+        <div class="confidence-labels">
+            <span>Confidence</span>
+            <span class="confidence-text">{{ score }}</span>
+        </div>
+
+        <div class="confidence-bar">
+            <div class="confidence-fill {{ result|lower }}"
+                 style="width: {{ (score|float * 100) if score|float <= 1 else score|replace('%','') }}%;">
+            </div>
+        </div>
+    </div>
+
+    <a href="/">Try Again</a>
+</div>
+
+<div class="footer">
+    © 2026 Deepfake Detector • AI Project • Built with Flask & Deep Learning
+</div>
+</body>
+</html>
