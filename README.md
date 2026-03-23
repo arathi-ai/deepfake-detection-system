@@ -91,6 +91,6 @@ MobileNetV2 was chosen for its lightweight architecture and strong performance o
 
 ---
 
-## 👩‍💻 Built By
+## 👩‍💻 Built By **Arathi Pushpan** — AI/ML Developer
 
 [GitHub](https://github.com/arathi-ai) | [Hugging Face](https://huggingface.co/spaces/arathi-ai/deepfake-detector)
